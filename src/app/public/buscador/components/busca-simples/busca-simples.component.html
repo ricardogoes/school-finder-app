@@ -1,0 +1,26 @@
+<div class="md:flex justify-center">
+
+  <input
+    type="text"
+    id="search"
+    [(ngModel)]="pesquisarParam"
+    class="input-lg w-96 sm:w-8/12 mb-4 mr-2" />
+
+  <div class="flex justify-center">
+    <button
+    type="button" class="button-primary button-lg mr-2"
+    (click)="handlePesquisar()">
+    Pesquisar
+  </button>
+
+  <!-- Início busca avançada-->
+  <button
+    type="button" class="button-gray-outlined button-lg w-48 mr-2 md:mr-16"
+    (click)="handleBuscaAvancada()">
+    Busca avançada
+  </button>
+  <!--Fim busca avançada-->
+  </div>
+
+
+</div>

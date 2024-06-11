@@ -1,0 +1,105 @@
+<div class="relative w-auto mx-auto max-w-6xl">
+  <!--content-->
+  <form
+    [formGroup]="buscaAvancadaForm"
+    (ngSubmit)="handleFiltrarDados()"
+    class="border-0 rounded-lg shadow-lg relative flex flex-col w-full h-screen bg-white outline-none focus:outline-none"
+    autocomplete="off"
+  >
+    <!--INICIO header-->
+    <div
+      class="flex items-baseline justify-between ps-6 py-3 border-b border-solid border-slate-200 rounded-t"
+    >
+      <h2>Busca avançada</h2>
+      <button
+        type="button"
+        class="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+        (click)="handleFecharModal()"
+      >
+        <span
+          class="bg-transparent text-black h-6 w-6 text-2xl block outline-none focus:outline-none"
+          >×</span
+        >
+      </button>
+    </div>
+    <!--FIM header-->
+
+    <!--INICIO body-->
+    <div class="form-container p-4" *ngIf="estados$ | async">
+      <div class="col-span-full">
+        <label for="estado_id" class="label">Estado</label>
+        <select
+          id="estado_id" formControlName="estado_id" class="input select"
+          (change)="handleAlterouEstado($any($event.target).value)"
+        >
+          <option value=""></option>
+          <option *ngFor="let estado of estados" [value]="estado.id">
+            {{ estado.nome }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-span-full">
+        <label for="cidade_id" class="label">Cidade</label>
+        <select id="cidade_id" formControlName="cidade_id" class="input select"
+        (change)="handleAlterouCidade($any($event.target).value)">
+          <option value=""></option>
+          <option *ngFor="let cidade of cidades" [value]="cidade.id">
+            {{ cidade.nome }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-span-full">
+        <label for="bairro_id" class="label">Bairro</label>
+        <select id="bairro_id" formControlName="bairro_id" class="input select">
+          <option value=""></option>
+          <option *ngFor="let bairro of bairros" [value]="bairro.id">
+            {{ bairro.nome }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-span-full">
+        <label for="cep" class="label">CEP</label>
+        <input
+          type="text"
+          id="cep"
+          formControlName="cep"
+          class="input"
+        />
+      </div>
+
+      <div class="col-span-full">
+        <label for="endereco" class="label">Endereço</label>
+        <input
+          type="text"
+          id="endereco"
+          formControlName="endereco"
+          class="input"
+        />
+      </div>
+    </div>
+    <!--FIM body-->
+
+    <!--INICIO footer-->
+    <div
+      class="flex items-center justify-end px-2 py-3 border-t bottom-0 border-solid border-slate-200 rounded-b"
+    >
+      <button
+        type="button"
+        class="button-gray button-md col-span-full row-end-1 col-start-1 mr-2"
+        (click)="handleResetarFiltros()"
+      >
+        Limpar
+      </button>
+      <button
+        type="submit"
+        class="button-primary button-md col-span-full row-end-1 col-start-1 mr-2"
+      >
+        Pesquisar
+      </button>
+    </div>
+    <!--FIM footer-->
+  </form>
+</div>

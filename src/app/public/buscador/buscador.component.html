@@ -1,0 +1,28 @@
+<div class="flex flex-col mt-2 ms-4 mr-2 sm:mx-4">
+  <h1 class="flex justify-center my-4">School Finder</h1>
+
+  <app-busca-simples
+    (pesquisar)="handlePesquisar($event)"
+    (abrirBuscaAvancada)="handleBuscaAvancada()"
+  ></app-busca-simples>
+
+  <hr class="mt-4" />
+
+  <app-resultados-pesquisa *ngIf="listaPaginadaApiResponse$ | async"
+    [escolasFiltradas]="escolas"
+    [dadosPaginacao]="dadosPaginacao"
+    (alterouPaginacao)="handlePaginacao($event)"
+  ></app-resultados-pesquisa>
+</div>
+
+<!--Modal busca avançada-->
+<div *ngIf="exibeBuscaAvancada" class="fixed inset-y-0 z-50 right-0 w-[400px]">
+  <app-busca-avancada
+    (filtrarDados)="handleFiltrarDados($event)"
+    (fecharModal)="toggleModal()"
+  ></app-busca-avancada>
+</div>
+<div
+  *ngIf="exibeBuscaAvancada"
+  class="opacity-25 fixed inset-0 z-40 bg-black"
+></div>

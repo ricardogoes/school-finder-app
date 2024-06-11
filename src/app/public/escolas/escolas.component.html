@@ -1,0 +1,917 @@
+<div *ngIf="escola$ | async" class="p-4">
+  <h1 class="mb-4">{{ escola?.nome }}</h1>
+  <hr class="mb-4" />
+  <section
+    id="dados-cadastrais"
+    class="rounded-md border bg-gray-50 mt-1 mb-4 mx-1 p-4"
+  >
+    <h2 class="mb-4">Dados Cadastrais</h2>
+    <div class="form-container mb-4">
+      <div class="col-span-4">
+        <label for="nome" class="label">Nome</label>
+        <input
+          type="text"
+          id="nome"
+          class="text bg-gray-50"
+          [value]="escola?.nome"
+        />
+      </div>
+      <div class="col-span-4">
+        <label for="cnpj" class="label">CNPJ</label>
+        <input
+          type="text"
+          id="cnpj"
+          class="text bg-gray-50"
+          [value]="escola?.cnpj"
+        />
+      </div>
+      <div class="col-span-4">
+        <label for="status" class="label">Status</label>
+        <input
+          type="text"
+          id="status"
+          class="text bg-gray-50"
+          [value]="escola?.status"
+        />
+      </div>
+    </div>
+    <div class="form-container">
+      <div class="col-span-4">
+        <label for="tipo_escola" class="label">Tipo Escola</label>
+        <input
+          type="text"
+          id="tipo_escola"
+          class="text bg-gray-50"
+          [value]="escola?.tipo_escola"
+        />
+      </div>
+      <div class="col-span-4">
+        <label for="tipo_localizacao" class="label">Tipo Localização</label>
+        <input
+          type="text"
+          id="tipo_localizacao"
+          class="text bg-gray-50"
+          [value]="escola?.tipo_localizacao"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="dados-contato"
+    class="rounded-md border bg-gray-50 mt-1 mb-4 mx-1 p-4"
+  >
+    <h2 class="mb-4">Dados de Contato</h2>
+
+    <div class="form-container mb-4">
+      <div class="col-span-2">
+        <label for="telefone" class="label">Telefone</label>
+        <input
+          type="text"
+          id="telefone"
+          class="text bg-gray-50"
+          [value]="escola?.contatos?.telefone"
+        />
+      </div>
+      <div class="col-span-2">
+        <label for="celular" class="label">Celular</label>
+        <input
+          type="text"
+          id="celular"
+          class="text bg-gray-50"
+          [value]="escola?.contatos?.celular || ''"
+        />
+      </div>
+      <div class="col-span-4">
+        <label for="email" class="label">Email</label>
+        <input
+          type="text"
+          id="email"
+          class="text bg-gray-50"
+          [value]="escola?.contatos?.email || ''"
+        />
+      </div>
+      <div class="col-span-4">
+        <label for="site_url" class="label">Site</label>
+        <input
+          type="text"
+          id="site_url"
+          class="text bg-gray-50"
+          [value]="escola?.contatos?.site_url || ''"
+        />
+      </div>
+    </div>
+
+    <div class="form-container mb-4">
+      <div class="col-span-3">
+        <label for="facebook_url" class="label">Facebook</label>
+        <input
+          type="text"
+          id="facebook_url"
+          class="text bg-gray-50"
+          [value]="escola?.contatos?.facebook_url || ''"
+        />
+      </div>
+      <div class="col-span-3">
+        <label for="instagram_url" class="label">Instagram</label>
+        <input
+          type="text"
+          id="instagram_url"
+          class="text bg-gray-50"
+          [value]="escola?.contatos?.instagram_url || ''"
+        />
+      </div>
+      <div class="col-span-3">
+        <label for="linkedin_url" class="label">Linkedin</label>
+        <input
+          type="text"
+          id="linkedin_url"
+          class="text bg-gray-50"
+          [value]="escola?.contatos?.linkedin_url || ''"
+        />
+      </div>
+      <div class="col-span-3">
+        <label for="tiktok_url" class="label">TikTok</label>
+        <input
+          type="text"
+          id="tiktok_url"
+          class="text bg-gray-50"
+          [value]="escola?.contatos?.tiktok_url || ''"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="dados-endereco"
+    class="rounded-md border bg-gray-50 mt-1 mb-4 mx-1 p-4"
+  >
+    <h2 class="mb-4">Dados de Endereço</h2>
+
+    <div class="grid grid-cols-6 gap-3 align-baseline">
+      <div class="col-span-4">
+        <div class="form-container mb-4">
+          <div class="col-span-6">
+            <label for="endereco" class="label">Endereço</label>
+            <input
+              type="text"
+              id="endereco"
+              class="text bg-gray-50"
+              [value]="escola?.endereco?.endereco"
+            />
+          </div>
+          <div class="col-span-2">
+            <label for="endereco_numero" class="label">Número</label>
+            <input
+              type="text"
+              id="endereco_numero"
+              class="text bg-gray-50"
+              [value]="escola?.endereco?.endereco_numero"
+            />
+          </div>
+          <div class="col-span-4">
+            <label for="complemento" class="label">Complemento</label>
+            <input
+              type="text"
+              id="complemento"
+              class="text bg-gray-50"
+              [value]="escola?.endereco?.complemento"
+            />
+          </div>
+        </div>
+        <div class="form-container mb-4">
+          <div class="col-span-6">
+            <label for="bairro" class="label">Bairro</label>
+            <input
+              type="text"
+              id="bairro"
+              class="text bg-gray-50"
+              [value]="escola?.endereco?.bairro"
+            />
+          </div>
+          <div class="col-span-2">
+            <label for="cidade" class="label">Cidade</label>
+            <input
+              type="text"
+              id="cidade"
+              class="text bg-gray-50"
+              [value]="escola?.endereco?.cidade"
+            />
+          </div>
+          <div class="col-span-4">
+            <label for="estado" class="label">UF</label>
+            <input
+              type="text"
+              id="estado"
+              class="text bg-gray-50"
+              [value]="escola?.endereco?.estado"
+            />
+          </div>
+        </div>
+        <div class="form-container mb-4">
+          <div class="col-span-6">
+            <label for="cep" class="label">CEP</label>
+            <input
+              type="text"
+              id="cep"
+              class="text bg-gray-50"
+              [value]="escola?.endereco?.cep"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-span-2">
+        <img src="../../../assets/images/mapa.png" alt="mapa" width="500" />
+      </div>
+    </div>
+  </section>
+
+  <section
+    id="caracteristicas"
+    class="rounded-md border bg-gray-50 mt-1 mb-4 mx-1 p-4"
+  >
+    <h2 class="mb-2">Características</h2>
+    <h4 class="mb-8">
+      (*) Baseado no Censo Escolar 2022 (<a class="text-blue-700"
+        href="https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-escolar/resultados/2022"
+        >https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-escolar/resultados/2022</a
+      >)
+    </h4>
+
+    <div class="grid grid-cols-3 gap-3">
+      <div *ngIf="escola?.dados_censo?.tem_vinculo_secretaria_educacao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Vínculo secretária de educação
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_vinculo_seguranca_publica">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Vínculo segurança pública
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_vinculo_secretaria_saude">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Vínculo secretária da saúde
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_vinculo_outro_orgao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Vínculo com outro orgao
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_parceria_poder_publico">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Parceria poder público
+      </div>
+      <div *ngIf="escola?.dados_censo?.tipo_regulamentacao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Regulamentação/Autorização no conselho ou órgão municipal, estadual ou
+        federal de educação: {{ escola?.dados_censo?.tipo_regulamentacao }}
+      </div>
+      <div *ngIf="escola?.dados_censo?.tipo_responsavel_regulamentacao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Esfera administrativa do conselho ou órgão responsável pela
+        Regulamentação/Autorização:
+        {{ escola?.dados_censo?.tipo_responsavel_regulamentacao }}
+      </div>
+      <div *ngIf="escola?.dados_censo?.tipo_ocupacao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Forma de ocupação do Prédio escolar:
+        {{ escola?.dados_censo?.tipo_ocupacao }}
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_agua_potavel">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Água potável
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_abastecimento_agua">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Abastecimento de água
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_abastecimento_poco_artesiano">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Abastecimento de água - Poço artesiano
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_abastecimento_cisterna">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Abasetcimento de água - Cacimba/Cisterna/Poço
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_abastecimento_rio">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Abastecimento de água - Fonte/Rio/Igarapé/Riacho/Córrego
+      </div>
+      <div *ngIf="escola?.dados_censo?.abastecimento_agua_inexistente">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Abastecimento de água inexistente
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_energia_rede_publica">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Energia pública
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_energia_gerador_fossil">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Energia pública - Gerador movido a combustível fóssil
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_energia_renovavel">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Energia pública - Energia renovável
+      </div>
+      <div *ngIf="escola?.dados_censo?.energia_inexistente">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Energia inexistente
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_esgoto_rede_publica">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Esgoto sanitário - Rede pública
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_esgoto_fossa_septica">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Esgoto sanitário - Fossa Séptica
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_esgoto_fossa_comum">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Esgoto sanitário - Fossa rudimentar/comum
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_esgoto_fossa">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Esgoto sanitário - Fossa
+      </div>
+      <div *ngIf="escola?.dados_censo?.esgoto_inexistente">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Esgoto sanitário - Não há esgotamento sanitário
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_lixo_coleta_servico">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Destinação do lixo - Serviço de coleta
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_lixo_queima">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Destinação do lixo - Queima
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_lixo_enterra">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Destinação do lixo - Enterra
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_lixo_destino_final_publico">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Destinação do lixo - Leva a uma destinação final financiada pelo poderpúblico
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_lixo_descarta_outra_area">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Destinação do lixo - Descarta em outra área
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_tratamento_lixo_separacao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Tratamento do lixo/resíduos que a escola realiza - Separação dolixo/resíduos
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_tratamento_lixo_reutilizacao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Tratamento do lixo/resíduos que a escola realiza -Reaproveitamento/reutilização
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_tratamento_lixo_reciclagem">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Tratamento do lixo/resíduos que a escola realiza - Reciclagem
+      </div>
+      <div *ngIf="escola?.dados_censo?.tratamento_lixo_inexistente">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Tratamento do lixo/resíduos que a escola realiza - Não faz tratamento
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_almoxarifado">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Almoxarifado
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_area_verde">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Área verde
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_auditorio">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Auditório
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_banheiro">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Banheiros
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_banheiro_educacao_infantil">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Banheiros adequados à educação infantil
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_banheiro_deficientes">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Banheiros para deficientes
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_banheiro_funcionarios">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Banheiros para funcionários
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_banheiro_chuveiro">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Banheiros com chuveiro
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_biblioteca">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Biblioteca
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_biblioteca_sala_leitura">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Biblioteca com sala de leitura
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_cozinha">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Cozinha
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_despensa">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Despensa
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_dormitorio_aluno">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Dormitório para alunos
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_dormitorio_professor">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Dormitório para professores
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_laboratorio_ciencias">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Laboratório de ciências
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_laboratorio_informatica">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Laboratório de informática
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_laboratorio_educacao_profissional">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Laboratório para educação profissional
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_patio_coberto">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Pátio coberto
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_patio_descoberto">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Pátio descoberto
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_parque_infantil">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Parque infantil
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_piscina">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Pscina
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_quadra_esportes">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Quadra de esportes
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_quadra_esportes_coberta">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Quadra de esportes coberta
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_quadra_esportes_descoberta">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Quadra de esportes descoberta
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_refeitorio">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Refeitório
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_sala_atelie_artes">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Sala de ateliê de artes
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_sala_musical_coral">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Sala de musical/coral
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_sala_estudio_danca">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Sala/estúdio de dança
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_sala_oficina_educacao_profissional">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Oficina de educação profissional
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_sala_diretoria">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Sala de diretoria
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_sala_leitura">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Sala de leitura
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_sala_professor">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Sala de professores
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_sala_repouso_aluno">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Sala de repouso para alunos
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_secretaria">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Secretária
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_sala_atendimento_especial">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Sala para atendimento especial especializado
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_terreirao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Área para prática desportiva e recreação sem cobertura, sem piso esem edificações
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_viveiro">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Viveiro/criação de animais
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_acessibilidade_corrimao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Acessibilidade para pessoas com deficiência - Corrimão e guarda corpos
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_acessibilidade_elevador">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Acessibilidade para pessoas com deficiência - Elevador
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_acessibilidade_pisos_tateis">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Acessibilidade para pessoas com deficiência - Pisos táteis
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_acessibilidade_vaos_livres">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Acessibilidade para pessoas com deficiência - Portas com vãos livres (mínimo 80 cm)
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_acessibilidade_rampas">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Acessibilidade para pessoas com deficiência - Rampas
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_acessibilidade_sinal_sonoro">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Acessibilidade para pessoas com deficiência - Sinal sonoro
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_acessibilidade_sinal_visual">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Acessibilidade para pessoas com deficiência - Sinal visual
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_acessibilidade_sinal_tatil">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Acessibilidade para pessoas com deficiência - Sinal tátil
+      </div>
+      <div *ngIf="escola?.dados_censo?.acessibilidade_inexistente">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Acessibilidade para pessoas com deficiência - Inexistente
+      </div>
+      <div *ngIf="escola?.dados_censo?.qtd_salas_climatizadas">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Salas de aula climatizadas
+      </div>
+      <div *ngIf="escola?.dados_censo?.qtd_salas_acessiveis" : 8>
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Salas de aula acessíveis para pessoas com deficiência
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_equipamento_parabolica">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Antena parabólica
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_equipamento_copiadora">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Copiadora
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_equipamento_impressora">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Impressora
+      </div>
+      <div
+        *ngIf="escola?.dados_censo?.tem_equipamento_impressora_multi_funcional"
+      >
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Impressora multi funcional
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_equipamento_scanner">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Scanner
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_equipamento_dvd">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        DVD
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_equipamento_som">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Som
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_equipamento_televisao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Televisão
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_equipamento_lousa_digital">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Lousa digital
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_equipamento_multimidia">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Equipamento multimídia
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_desktop_aluno">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Computador de mesa para uso do aluno
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_computador_pessoal_aluno">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Notebook para uso do aluno
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_tablet_aluno">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Tablet para uso do aluno
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_internet">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Internet
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_internet_alunos">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Internet para uso dos alunos
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_internet_administrativo">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Internet para uso do administrativo
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_internet_aprendizagem">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Internet para uso nos processos de aprendizagem
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_internet_comunidade">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Internet para uso da comunidade
+      </div>
+      <div *ngIf="escola?.dados_censo?.tipo_rede_local">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Tipo de rede: {{ escola?.dados_censo?.tipo_rede_local }}
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_internet_banda_larga">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Internet banda larga
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_administrativos">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Auxiliares de secretaria ou auxiliares administrativos, atendentes
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_servicos_gerais">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Auxiliar de serviços gerais, porteiro(a), zelador(a), faxineiro(a),
+        horticultor(a), jardineiro(a)
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionai_bibliotecario">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Bibliotecário(a), auxiliar de biblioteca ou monitor(a) da sala de
+        leitura
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_saude">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Bombeiro(a) brigadista, profissionais de assistência à saúde (urgência e
+        emergência), Enfermeiro(a), Técnico(a) de enfermagem e socorrista
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_coordenador">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Bombeiro(a) brigadista, profissionais de assistência à saúde (urgência e
+        emergência), Enfermeiro(a), Técnico(a) de enfermagem e socorrista
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_fonaudiologo">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Bombeiro(a) brigadista, profissionais de assistência à saúde (urgência e
+        emergência), Enfermeiro(a), Técnico(a) de enfermagem e socorrista
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_nutricionista">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Nutricionista
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_psicologo">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Psicologo
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_alimentacao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Profissionais de preparação e segurança alimentar, cozinheiro(a),
+        merendeiro(a) e auxiliar de cozinha
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_pedagogia">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Profissionais de apoio e supervisão pedagógica
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_secretaria">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Secretário(a) escolar
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_seguranca">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Segurança, guarda ou segurança patrimonial
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_monitor">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Técnicos(as), monitores(as), supervisores(as) ou auxiliares de
+        laboratório(s)
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_gestao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Vice-diretor(a) ou diretor(a) adjunto(a)
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_profissionais_assistente_social">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Orientador(a) comunitário(a) ou assistente social
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_alimentacao">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Alimentação escolar para os alunos - PNAE/FNDE
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_acervo_multimidia">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Acervo multimídia
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_brinquedos_educacao_infantil">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Brinquedos para educação infantil
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_conjuntos_materiais_cientificos">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Conjunto de materiais científicos
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_equipamento_para_amplificacao_difusao_som">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Equipamento para amplificação e difusão de som/áudio
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_instrumentos_musicais">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Instrumentos musicais para conjunto, banda/fanfarra e/ou aulas de música
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_jogos_educativos">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Jogos Educativos
+      </div>
+      <div
+        *ngIf="
+          escola?.dados_censo?.tem_materiais_atividades_culturais_artisticas
+        "
+      >
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Materiais para atividades culturais e artísticas
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_materiais_educacao_profissional">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Materiais para Educação Profissional
+      </div>
+      <div
+        *ngIf="escola?.dados_censo?.tem_materiais_pratica_desportiva_recreacao"
+      >
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Materiais para prática desportiva e recreação
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_materiais_educacao_indigena">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Materiais para educação indigena
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_materiais_educacao_etnico_racial">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Materiais pedagógicos para a educação das relações étnico-raciais
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_materiais_educacao_campo">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Materiais pedagógicos para a educação do campo
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_exame_solicitacao_novos_alunos">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        A escola faz exame de seleção para ingresso de seus alunos
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_redes_sociais">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        A escola possui site ou blog ou página em redes sociais para comunicação
+        institucional
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_espaco_integracao_comunidade">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        A escola compartilha espaços para atividades de integração
+        escola-comunidade
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_orgao_associacao_pais">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Associação de Pais
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_orgao_associacao_pais_e_mestres">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Associação de Pais e Mestres
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_orgao_conselho_escolar">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Conselho escolar
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_orgao_gremil_estudantil">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Grêmio estudantil
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_outros_orgaos">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Outros órgãos colegiados em funcionamento na escola
+      </div>
+      <div *ngIf="escola?.dados_censo?.orgaos_inexistentes">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Não há órgãos colegiados em funcionamento
+      </div>
+      <div *ngIf="escola?.dados_censo?.tipo_proposta_pedagogica_id" : 1></div>
+      <div
+        *ngIf="escola?.dados_censo?.tipo_atendimento_educacional_especializado"
+      >
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Atendimento Educacional Especializado (AEE)
+      </div>
+      <div *ngIf="escola?.dados_censo?.tipo_atividade_complementar">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Atividade complementar
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_mediacao_presencial">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Mediação didático-pedagógica oferecida pela escola - Presencial
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_mediacao_semi_presencial">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Mediação didático-pedagógica oferecida pela escola - Semiresencial
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_mediacao_ead">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Mediação didático-pedagógica oferecida pela escola - EAD
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_regular">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Creche ao Ensino Médio
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_periodo_diurno">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Turno - Diurno
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_periodo_noturno">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Turno - Noturno
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_periodo_ead">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Turno não aplicável para turmas semipresenciais ou de Educação a
+        Distância (EAD)
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_basica">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação Básica
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_infantil">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação Infantil
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_infantil_creche">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Edudação Infantil - Creche
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_infantil_pre">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação Infantil - Pré-escola
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_ensino_fundamental">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Ensino fundamental
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_ensino_fundamental_anos_iniciais">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Ensino fundamento - anos iniciais
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_ensino_fundamental_anos_finais">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Ensino fundamental - anos finais
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_ensino_medio">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Ensino médio
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_ensino_profissionalizante">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação profissionalizante
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_ensino_profissionalizante_tecnico">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação profissionalizante técnica
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_jovens_adultos">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação para jovens adultos (EJA)
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_jovens_adultos_fundamental">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação para jovens adultos (EJA) - Ensino fundamental
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_jovens_adultos_medio">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação para jovens adultos (EJA) - Ensino médio
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_especial">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação especial
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_especial_classe_comum">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação especial - classe comum
+      </div>
+      <div *ngIf="escola?.dados_censo?.tem_educacao_especial_classe_exclusiva">
+        <ng-icon color="blue" name="heroCheck"></ng-icon>
+        Educação especial - classe exclusiva
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,15 @@
+<div *ngIf="escolasFiltradas && escolasFiltradas.length > 0" class="w-full">
+  <div
+    *ngFor="let escola of escolasFiltradas; trackBy: trackByEscolaId"
+    class="border-b-2 my-3 p-2"
+  >
+    <h2 (click)="handleAbrirDetalhes(escola)">{{ escola.nome }}</h2>
+    <span>{{ obterEnderecoEscola(escola.endereco) }}</span>
+  </div>
+
+  <!--Paginação-->
+  <app-paginacao
+    [dadosPaginacao]="dadosPaginacao"
+    (alterouPaginacao)="handlePaginacao($event)"
+  ></app-paginacao>
+</div>

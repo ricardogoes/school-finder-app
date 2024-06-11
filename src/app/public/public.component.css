@@ -1,0 +1,7 @@
+.container {
+  @apply min-h-screen flex bg-slate-50;
+}
+
+.container-main {
+  @apply flex-1 bg-white;
+}
